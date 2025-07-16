@@ -9,7 +9,6 @@ from hyperopt import fmin, tpe, hp, Trials, STATUS_OK
 import pandas as pd
 
 from sklearn.model_selection import cross_val_score
-
 from evaluation import evaluate_single_model
 
 def get_default_binary_models(X_train, y_train, X_test, y_test):
@@ -50,6 +49,30 @@ def get_default_binary_models(X_train, y_train, X_test, y_test):
 
 
 def run_xgboost_hyperopt(X_train, y_train, cv = 5, max_evals=50):
+    """
+    Perform hyperparameter optimization for an XGBoost classifier using Hyperopt.
+
+    Args:
+        X_train (pd.DataFrame or np.ndarray): Training feature matrix.
+        y_train (pd.Series or np.ndarray): Target labels for training.
+        cv (int, optional): Number of cross-validation folds. Defaults to 5.
+        max_evals (int, optional): Maximum number of Hyperopt evaluations. Defaults to 50.
+
+    Returns:
+        tuple:
+            best (dict): Best hyperparameters found by Hyperopt.
+            trials (hyperopt.Trials): Trials object containing details of all optimization runs.
+
+    Description:
+        The function defines a search space for key XGBoost hyperparameters and uses
+        Hyperopt's Tree-structured Parzen Estimator (TPE) algorithm to find the best
+        combination that maximizes the cross-validated ROC AUC score on the training data.
+
+        During optimization, it prints the current parameter set and corresponding CV AUC score.
+
+    Example usage:
+        best_params, trials = run_xgboost_hyperopt(X_train, y_train, cv=5, max_evals=100)
+    """
     def objective(params):
         model = XGBClassifier(
             n_estimators=int(params['n_estimators']),

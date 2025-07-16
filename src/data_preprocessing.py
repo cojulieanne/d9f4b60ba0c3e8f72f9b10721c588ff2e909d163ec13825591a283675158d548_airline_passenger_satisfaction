@@ -2,12 +2,10 @@ import pandas as pd
 import sys
 from pathlib import Path
 import re
+from sklearn.model_selection import train_test_split
 
 project_root = Path(__file__).resolve().parent.parent
 sys.path.append(str(project_root))
-
-from sklearn.model_selection import train_test_split
-
 
 def get_train_test():
     train = pd.read_csv(project_root/'data'/'train.csv').drop(columns=['Unnamed: 0'])
