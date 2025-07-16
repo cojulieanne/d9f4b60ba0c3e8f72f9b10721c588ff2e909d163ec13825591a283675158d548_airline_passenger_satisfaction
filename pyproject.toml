@@ -1,0 +1,27 @@
+[project]
+name = "airline-passenger-satisfaction"
+version = "0.1.0"
+description = "ML pipeline for airline passenger satisfaction"
+authors = ["Julie Co <cojulieanne@gmail.com>"]
+requires-python = ">=3.8"
+
+dependencies = [
+    "pandas==2.3.1",
+    "numpy==2.2.6",
+    "scikit-learn==1.7.0",
+    "matplotlib==3.10.3",
+    "shap==0.48.0",
+    "joblib==1.5.1",
+    "xgboost==3.0.2",
+    "lightgbm==4.6.0",
+    "catboost==1.2.8",
+    "pre-commit==4.2.0",
+    "pytest",
+    "black",
+    "ruff",
+    "scipy==1.16.0",
+    "tqdm==4.67.1",
+    "uv==0.7.21"
+]
+
+[tool.uv]
