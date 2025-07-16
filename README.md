@@ -16,19 +16,18 @@ This allows for flexibility of data split based on custom settings.
 
 ```text
 .
+├── analysis/
+│   ├── eda.ipynb                   # Exploratory Data Analysis
 ├── data/
-│   ├── raw/                        # Original CSV from Kaggle
-│   └── processed/                  # Cleaned and transformed data
-├── models/                         # Trained model artifacts (e.g., model.pkl)
-├── outputs/                        # Visual outputs such as SHAP plots
-├── reports/
-│   └── metrics.txt                 # Model evaluation metrics
+│   ├── full_data.csv               # Combined Train and Test Data
+│   └── test.csv                    # Original Data from Kaggle
+│   └── train.csv                   # Original Data from Kaggle
+├── results/                        # Trained model artifacts and results (e.g., model.pkl)
 ├── src/
 │   ├── data_preprocessing.py      # Load, clean, split dataset
-│   ├── feature_engineering.py     # Feature transformations
-│   ├── model_training.py          # Model training and saving
-│   ├── evaluation.py              # Load model and evaluate
-│   └── run_pipeline.py            # End-to-end pipeline runner
+│   ├── evaluation.py              # Save/Load model and evaluate on test
+│   ├── model_training.py          # Model training with CV
+│   └── pipeline.py                # End-to-end pipeline for modelling 
 ├── tests/
 │   └── test_data_preprocessing.py # Sample unit tests (optional)
 ├── .pre-commit-config.yaml        # Pre-commit hook definitions
