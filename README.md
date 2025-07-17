@@ -12,6 +12,11 @@ Access the dataset and data card from Kaggle:
 After downloading the `train.csv` and `test_csv`, these two files were combined into one dataset `full_data.csv` and removed the unnecessary column `Unnamed: 0`. 
 This allows for flexibility of data split based on custom settings.
 
+## How to Run the Pipe
+
+Clone the project and ensure all dependencies `pyproject.toml` are satisfied.
+Run the `src/pipeline.py`
+
 ## Project Structure
 
 ```text
