@@ -7,12 +7,34 @@ from sklearn.model_selection import train_test_split
 project_root = Path(__file__).resolve().parent.parent
 sys.path.append(str(project_root))
 
-def get_train_test():
-    train = pd.read_csv(project_root/'data'/'train.csv').drop(columns=['Unnamed: 0'])
-    test = pd.read_csv(project_root/'data'/'test.csv').drop(columns=['Unnamed: 0'])
-    return train, test
+def get_data():
+    """
+    Loads the dataset from the specified CSV file located in the project's data directory.
+
+    Returns:
+        pd.DataFrame: The dataset loaded into a Pandas DataFrame.
+    """
+    data = pd.read_csv(project_root/'data'/'full_data.csv')
+    return data
 
 def check_uniqueness(df, column='id'):
+    """
+    Checks if the values in the specified column of the DataFrame are unique across all rows.
+
+    Args:
+        df (pd.DataFrame): The DataFrame to check.
+        column (str, optional): The column name to check for uniqueness. Defaults to 'id'.
+
+    Returns:
+        bool: True if all values in the column are unique; raises AssertionError otherwise.
+
+    Raises:
+        AssertionError: If the number of unique values in the column does not match
+                        the total number of rows in the DataFrame.
+
+    Prints:
+        A message indicating the status of the uniqueness check.
+    """
     print(f"Checking uniqueness of column: '{column}'")
 
     unique_count = df[column].nunique()
@@ -25,11 +47,6 @@ def check_uniqueness(df, column='id'):
 
     print("All values are unique. Passed\n")
     return True
-
-def get_data():
-    data = pd.read_csv(project_root/'data'/'full_data.csv')
-    return data
-
 
 def split_data(df, target, threshold=0.2, stratify=True, random_state=42):
     """
