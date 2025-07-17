@@ -34,3 +34,21 @@ This allows for flexibility of data split based on custom settings.
 ├── pyproject.toml                 # UV-compatible dependency definitions
 └── README.md
 ```
+
+## Pre-commit Configuration
+To maintain code quality and style, the following pre-commit hooks are configured:
+
+* Ruff: Fast Python linter and formatter that detects style violations and common errors.
+
+* Trailing Whitespace: Removes unnecessary trailing spaces from code files.
+
+* End-of-File Fixer: Ensures files end with a newline for readability and compatibility.
+
+These hooks automatically run before commits, helping maintain clean and consistent code.
+
+## Reflection
+
+A key challenge faced was configuring the UV environment and managing dependencies reproducibly. Initially, some package conflicts and activation issues slowed progress. Through careful reading of UV documentation and iterative troubleshooting, I established a stable and reproducible environment. This process reinforced the importance of environment management and clear setup documentation in ML projects.
+
+## Running Visualizations
+SHAP summary plots are generated post-training to interpret model predictions. Running the visualization script produces beeswarm plots highlighting key features influencing satisfaction scores. These plots are saved in the outputs/ folder for easy access.
