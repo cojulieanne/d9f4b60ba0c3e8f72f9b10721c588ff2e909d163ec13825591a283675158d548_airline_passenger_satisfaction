@@ -21,7 +21,9 @@ dependencies = [
     "ruff",
     "scipy==1.16.0",
     "tqdm==4.67.1",
-    "uv==0.7.21"
+    "uv==0.7.21",
+    "hyperopt==0.2.7",
+    "setuptools==80.9.0"
 ]
 
 [tool.uv]

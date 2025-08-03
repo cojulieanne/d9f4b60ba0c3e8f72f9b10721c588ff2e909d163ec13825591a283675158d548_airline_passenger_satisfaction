@@ -4,12 +4,18 @@ from sklearn.neighbors import KNeighborsClassifier
 from sklearn.naive_bayes import GaussianNB
 from xgboost import XGBClassifier
 from lightgbm import LGBMClassifier
+import sys
+from pathlib import Path
 
 from hyperopt import fmin, tpe, hp, Trials, STATUS_OK
 import pandas as pd
 
 from sklearn.model_selection import cross_val_score
 from evaluation import evaluate_single_model
+
+project_root = Path(__file__).resolve().parent.parent
+#project_root = os.path.abspath(os.path.join(os.path.dirname(__file__), ".."))
+sys.path.append(str(project_root))
 
 def get_default_binary_models(X_train, y_train, X_test, y_test):
     """
@@ -41,7 +47,7 @@ def get_default_binary_models(X_train, y_train, X_test, y_test):
             results[name] = "Failed"
 
     results_df = pd.DataFrame(results).T  # transpose if models are keys
-    results_df.to_csv("../results/default_binary_models_results.csv")
+    results_df.to_csv(project_root/"results"/"default_binary_models_results.csv")
 
     print("Saved results to default_binary_models_results.csv")
 

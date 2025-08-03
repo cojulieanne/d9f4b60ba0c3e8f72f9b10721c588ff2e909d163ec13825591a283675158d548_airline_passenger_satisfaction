@@ -4,8 +4,14 @@ from data_preprocessing import get_data, check_uniqueness, standardize_cols, imp
 from model_training import get_default_binary_models, run_xgboost_hyperopt, create_xgboost_model
 from evaluation import evaluate_single_model, save_confusion_matrix_plot, save_feature_importance_plot, save_shap_summary_plot, save_roc_curve_plot
 import warnings
+import sys
+import os 
+from pathlib import Path
 
 warnings.filterwarnings('ignore')
+
+project_root = Path(__file__).resolve().parent.parent
+sys.path.append(str(project_root))
 
 def main():
 
@@ -27,13 +33,13 @@ def main():
 
     #Default XGBoost performed best, so it will be the model to tune
     best_params, trials = run_xgboost_hyperopt(data['X_train'], data['y_train'], cv = 5, max_evals=50)
-    with open('../results/hyperopt_trials.pkl', 'wb') as f:
+    with open(project_root/"results"/"hyperopt_trials.pkl", 'wb') as f:
         pickle.dump(trials, f)
 
     #Phase 4: Model Evaluation
     model = create_xgboost_model(best_params)
     model, test_results = evaluate_single_model(model, data['X_train'], data['y_train'], data['X_test'], data['y_test'])
-    model_path = '../results/final_model.pkl'
+    model_path = project_root/"results"/"final_model.pkl"
     joblib.dump(model, model_path)
     print(f"Model saved to {model_path}")
     save_shap_summary_plot(model, data['X_test'])
