@@ -11,6 +11,8 @@ import sys
 project_root = Path(__file__).resolve().parent.parent
 sys.path.append(str(project_root))
 
+#project_root = "/app"
+
 def evaluate_single_model(model, X_train, y_train, X_test, y_test):
     """
     Trains and evaluates a single model on binary classification metrics.

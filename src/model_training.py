@@ -14,8 +14,9 @@ from sklearn.model_selection import cross_val_score
 from evaluation import evaluate_single_model
 
 project_root = Path(__file__).resolve().parent.parent
-#project_root = os.path.abspath(os.path.join(os.path.dirname(__file__), ".."))
 sys.path.append(str(project_root))
+
+#project_root = "/app"
 
 def get_default_binary_models(X_train, y_train, X_test, y_test):
     """

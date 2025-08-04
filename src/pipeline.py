@@ -5,13 +5,17 @@ from model_training import get_default_binary_models, run_xgboost_hyperopt, crea
 from evaluation import evaluate_single_model, save_confusion_matrix_plot, save_feature_importance_plot, save_shap_summary_plot, save_roc_curve_plot
 import warnings
 import sys
-import os 
 from pathlib import Path
+import logging
+logging.basicConfig(level=logging.INFO)
+logger = logging.getLogger(__name__)
 
 warnings.filterwarnings('ignore')
 
 project_root = Path(__file__).resolve().parent.parent
 sys.path.append(str(project_root))
+
+#project_root = "/app"
 
 def main():
 

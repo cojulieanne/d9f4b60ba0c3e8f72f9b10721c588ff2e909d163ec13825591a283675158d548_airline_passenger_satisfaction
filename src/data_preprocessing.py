@@ -3,10 +3,11 @@ import sys
 from pathlib import Path
 import re
 from sklearn.model_selection import train_test_split
-import os
 
 project_root = Path(__file__).resolve().parent.parent
 sys.path.append(str(project_root))
+
+#project_root = "/app"
 
 def get_data():
     """

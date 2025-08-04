@@ -1,15 +1,17 @@
+---
 repos:
   - repo: https://github.com/astral-sh/ruff-pre-commit
-    rev: v0.4.6
+    rev: v0.12.7
     hooks:
       - id: ruff
-        args: ["--fix"]  # auto-fix where possible
-        files: \.py$     # only run on Python files
+        args: ["--fix"]
+        files: \.py$
 
   - repo: https://github.com/pre-commit/pre-commit-hooks
-    rev: v4.4.0
+    rev: v5.0.0
     hooks:
       - id: end-of-file-fixer
-        files: \.py$  # only check Python files
+        files: \.py$
       - id: trailing-whitespace
-        files: \.py$  # only clean up Python files
+        files: \.py$
+
