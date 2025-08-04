@@ -96,8 +96,6 @@ This ensures that updates to the host machine’s data are immediately reflected
 
 ```
 
-
-
 ## Pre-commit Configuration
 To maintain code quality and style, the following pre-commit hooks are configured:
 
@@ -106,6 +104,10 @@ To maintain code quality and style, the following pre-commit hooks are configure
 * Trailing Whitespace: Removes unnecessary trailing spaces from code files.
 
 * End-of-File Fixer: Ensures files end with a newline for readability and compatibility.
+
+* Hadolint: Lints the `Dockerfile` to ensure Docker best practices, such as avoiding unnecessary root privileges and pinning base image versions.
+
+* Yamllint: Validates `docker-compose.yaml` and other YAML files for structural and stylistic correctness.
 
 These hooks automatically run before commits, helping maintain clean and consistent code.
 
