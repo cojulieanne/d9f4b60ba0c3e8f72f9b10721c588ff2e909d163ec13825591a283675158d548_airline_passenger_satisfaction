@@ -7,8 +7,6 @@ from sklearn.model_selection import train_test_split
 project_root = Path(__file__).resolve().parent.parent
 sys.path.append(str(project_root))
 
-#project_root = "/app"
-
 def get_data():
     """
     Loads the dataset from the specified CSV file located in the project's data directory.

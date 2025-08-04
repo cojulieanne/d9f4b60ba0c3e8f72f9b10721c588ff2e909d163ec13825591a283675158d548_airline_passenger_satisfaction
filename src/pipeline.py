@@ -15,8 +15,6 @@ warnings.filterwarnings('ignore')
 project_root = Path(__file__).resolve().parent.parent
 sys.path.append(str(project_root))
 
-#project_root = "/app"
-
 def main():
 
     #Phase 1: Data Preprocessing

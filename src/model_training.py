@@ -16,8 +16,6 @@ from evaluation import evaluate_single_model
 project_root = Path(__file__).resolve().parent.parent
 sys.path.append(str(project_root))
 
-#project_root = "/app"
-
 def get_default_binary_models(X_train, y_train, X_test, y_test):
     """
     Trains and evaluates a set of default binary classification models.
