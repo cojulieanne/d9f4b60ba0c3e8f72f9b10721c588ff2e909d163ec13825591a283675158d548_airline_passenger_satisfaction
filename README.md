@@ -45,6 +45,7 @@ In the Airflow UI:
 * Unpause the DAG named `ml_pipeline_dag`
 * Click **Trigger DAG**
 
+You may track the logs of the pipeline either thru the Airflow UI in the `Logs` or in the folder `deploy/airflow/logs`.
 
 ## Docker Integration
 To ensure environment consistency and reproducibility, we encapsulate all pipeline dependencies within a custom Docker image. The Dockerfile is located at deploy/Dockerfile, and it installs essential libraries such as `pandas`, `scikit-learn`, `matplotlib`, `shap`,  `hyperopt`, etc based on the `pyproject.toml`. Building and running the image is outline in Steps *2* and *3*.
